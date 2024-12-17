@@ -60,11 +60,10 @@ export class ViagemController {
   static async fetchAll(req: Request, res: Response): Promise<Response> {
     try {
       const urls = await ApiServiceFirebase.getApis();
-
+      
       if (!urls.length) {
         return res.status(404).json({ message: 'Nenhuma API registrada.' });
       }
-
       
       const apiData = await ApiService.fetchApiData(
         urls.map((url) => `${url}/`)
