@@ -1,5 +1,5 @@
 import express from 'express';
-import viagemRoutes from './src/routes/viagemRoutes';
+import viagemRoutes from './routes/viagemRoutes';
 
 const app = express();
 import cors from 'cors';

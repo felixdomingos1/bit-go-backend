@@ -19,8 +19,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "start": "node dest/app.ts",
-    "dev": "nodemon app.ts"
+    "start": "node dist/src/app.js",
+    "dev": "nodemon src/app.ts"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
