@@ -68,6 +68,9 @@ export class ViagemController {
       const apiData = await ApiService.fetchApiData(
         urls.map((url) => `${url}/`)
       );
+
+      console.log("API DATA", apiData);
+      
       const viagem = apiData.find((data) => data !== null);
       
       if (!viagem) {
@@ -75,7 +78,6 @@ export class ViagemController {
       }
 
       const normalizedViagem = normalizeData(viagem);
-      console.log(normalizedViagem);
       
       return res.status(200).json(normalizedViagem);
     } catch (error) {

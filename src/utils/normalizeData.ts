@@ -37,7 +37,7 @@ export function normalizeData(data: any): IViagem | null {
       }
     };
 
-    return null;
+    return data;
   } catch {
     return null;
   }
