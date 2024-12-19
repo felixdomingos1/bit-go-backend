@@ -4,26 +4,18 @@ import emailRoutes from './routes/emailRoutes';
 
 const app = express();
 import cors from 'cors';
-
 app.use(cors({
-  origin: '*', 
-  methods: ['GET', 'POST', 'OPTIONS'], 
+  origin: (origin, callback) => {
+    const allowedOrigins = ['http://localhost:5173', 'https://bit-go.vercel.app'];
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Origin not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type']
 }));
-
-
-// app.use(cors({
-//   origin: (origin, callback) => {
-//     const allowedOrigins = ['http://localhost:5173', 'https://bit-go.vercel.app'];
-//     if (!origin || allowedOrigins.includes(origin)) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error('Origin not allowed by CORS'));
-//     }
-//   },
-//   methods: ['GET', 'POST', 'OPTIONS'],
-//   allowedHeaders: ['Content-Type']
-// }));
 
 
 app.use(express.json());
