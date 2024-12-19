@@ -6,7 +6,7 @@ const app = express();
 import cors from 'cors';
 
 app.use(cors({
-  origin: '*',
+  origin: ['http://localhost:5173/','https://bit-go.vercel.app/'],
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type']
 }));
