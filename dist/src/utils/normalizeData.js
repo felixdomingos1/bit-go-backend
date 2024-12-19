@@ -36,7 +36,7 @@ function normalizeData(data) {
             };
         }
         ;
-        return null;
+        return data;
     }
     catch (_a) {
         return null;

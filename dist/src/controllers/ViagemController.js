@@ -66,12 +66,12 @@ class ViagemController {
                     return res.status(404).json({ message: 'Nenhuma API registrada.' });
                 }
                 const apiData = yield ApiService_1.ApiService.fetchApiData(urls.map((url) => `${url}/`));
+                console.log("API DATA", apiData);
                 const viagem = apiData.find((data) => data !== null);
                 if (!viagem) {
                     return res.status(404).json({ message: 'Viagens não encontradas.' });
                 }
                 const normalizedViagem = (0, normalizeData_1.normalizeData)(viagem);
-                console.log(normalizedViagem);
                 return res.status(200).json(normalizedViagem);
             }
             catch (error) {
